@@ -1,1 +1,2 @@
-# data-512-homework_1
+# Data 512 HW1: Professionalism & Reproducibility
+
