@@ -1,5 +1,4 @@
-# Data 512 HW1: Professionalism & Reproducibility
-**Analysis of Wikipedia Traffic for Rare Diseases**
+# Analysis of Wikipedia Traffic for Rare Diseases
 
 ## Project Goal
 Rare diseases, affecting a small percentage of the population, often receive less public and media attention compared to more common diseases.
@@ -14,7 +13,7 @@ This project follows to the best practices for open scientific research as menti
 
 ## Licenses
 
-### Input Data
+### Input Data (rare-disease_cleaned.AUG.2024.csv)
 
 In this repository, we collect counts of pageviews using a specified subset of Wikipedia article pages. This is a [subset of the English Wikipedia](https://drive.google.com/file/d/15_FiKhBgXB2Ch9c0gAGYzKjF0DBhEPlY/view) that represents a large number of articles related to rare diseases. This list of pages was collected by using a database of rare diseases maintained by the [National Organization for Rare Diseases (NORD)](https://rarediseases.org/). Please make sure to follow the [Terms & Conditions](https://rarediseases.org/terms-conditions/) before making contributions to this repository.
 
@@ -43,53 +42,37 @@ This is the first step in this project where we ensure that all the data is prep
 
 The script generates the following files in the location `data/generated_data/`:
  - **rare-disease_monthly_mobile_<`startYYYYMM`>-<`endYYYYMM`>.json:** Contains monthly pageview data for mobile access, combining both mobile app and mobile web views.
+
  ***Data Schema:***
-```json
-{
-    "string": [                          # Page title
-        {
-            "article": "string",        # Page title
-            "timestamp": "string",      # Timestamp in YYYYMMDDHH format
-            "views": "integer"          # Number of page views
-        },
-        .
-        .
-    ]
-}
+```yaml
+string:  # Page title
+  - article: string       # Page title
+    timestamp: string     # Timestamp in YYYYMMDDHH format
+    views: integer        # Number of page views
+
 ```
  - **rare-disease_monthly_desktop_<`startYYYYMM`>-<`endYYYYMM`>.json:** Includes monthly pageview data specifically for desktop access.
+
   ***Data Schema:***
-```json
-{
-    "string": [                         # Page title
-        {
-            "project": "string",        # Wikimedia domain and subdomain
-            "article": "string",        # Page title
-            "granularity": "string",    # Time interval between datapoints
-            "timestamp": "string",      # Timestamp in YYYYMMDDHH format
-            "access": "string",         # Device used to access
-            "agent": "string",          # Type of user agent
-            "views": "integer"     # Number of page views
-        },
-        .
-        .
-    ]
-}
+```yaml
+string:  # Page title
+  - project: string       # Wikimedia domain and subdomain
+    article: string       # Page title
+    granularity: string   # Time interval between datapoints
+    timestamp: string     # Timestamp in YYYYMMDDHH format
+    access: string        # Device used to access
+    agent: string         # Type of user agent
+    views: integer        # Number of page views
 ```
  - **rare-disease_monthly_cumulative_<startYYYYMM>-<endYYYYMM>.json:** Contains cumulative pageview data, summing all mobile and desktop traffic for each article.
+
   ***Data Schema:***
-```json
-{
-    "string": [                          # Page title
-        {
-            "article": "string",        # Page title
-            "timestamp": "string",      # Timestamp in YYYYMMDDHH format
-            "views": "integer"          # Number of page views
-        },
-        .
-        .
-    ]
-}
+```yaml
+string:  # Page title
+  - article: string       # Page title
+    timestamp: string     # Timestamp in YYYYMMDDHH format
+    views: integer        # Number of page views
+
 ```
 
 ### 2. Analysis
@@ -125,7 +108,7 @@ We have successfully analyzed Wikipedia traffic patterns for rare disease articl
 - Data gaps were observed in certain months where page views were missing, and the distribution of page views was skewed, with a small number of articles receiving the majority of the traffic in specific cases.
 
 
-### Reproducible Research Practices
+### Research Practices
 The project followed the best practices outlined in “The Practice of Reproducible Research” to ensure transparency and ease of replication:
 - The project maintained a hierarchical structure, separating scripts, data, and visualizations into distinct folders for better organization. Output data and visuals are stored in dedicated folders (`data/generated_data/` and `generated_visuals/`, respectively).
 - Dependencies were clearly listed in the requirements.txt file. This helps in easy replication of the environment.
