@@ -42,20 +42,12 @@ This is the first step in this project where we ensure that all the data is prep
 
 The script generates the following files in the location `data/generated_data/`:
  - **rare-disease_monthly_mobile_<`startYYYYMM`>-<`endYYYYMM`>.json:** Contains monthly pageview data for mobile access, combining both mobile app and mobile web views.
-
- ***Data Schema:***
-```yaml
-string:  # Page title
-  - article: string       # Page title
-    timestamp: string     # Timestamp in YYYYMMDDHH format
-    views: integer        # Number of page views
-
-```
  - **rare-disease_monthly_desktop_<`startYYYYMM`>-<`endYYYYMM`>.json:** Includes monthly pageview data specifically for desktop access.
+ - **rare-disease_monthly_cumulative_<startYYYYMM>-<endYYYYMM>.json:** Contains cumulative pageview data, summing all mobile and desktop traffic for each article.
 
-  ***Data Schema:***
+Each of them have the following data schema:
 ```yaml
-string:  # Page title
+string:                   # Page title
   - project: string       # Wikimedia domain and subdomain
     article: string       # Page title
     granularity: string   # Time interval between datapoints
@@ -63,16 +55,6 @@ string:  # Page title
     access: string        # Device used to access
     agent: string         # Type of user agent
     views: integer        # Number of page views
-```
- - **rare-disease_monthly_cumulative_<startYYYYMM>-<endYYYYMM>.json:** Contains cumulative pageview data, summing all mobile and desktop traffic for each article.
-
-  ***Data Schema:***
-```yaml
-string:  # Page title
-  - article: string       # Page title
-    timestamp: string     # Timestamp in YYYYMMDDHH format
-    views: integer        # Number of page views
-
 ```
 
 ### 2. Analysis
@@ -97,7 +79,6 @@ article_title_encoded = urllib.parse.quote(request_template['article'].replace('
 - Trends in page views may correlate with external events (e.g., the COVID-19 pandemic as seen in [Fewest Months of Data plot](https://github.com/parvatijay2901/data-512-homework_1/blob/main/generated_visuals/plot3_logscale_fewest_months_of_data.png.png)), and hence should be accounted. A good domain knowledge is required for the same.
 - The data is sourced from Wikipedia’s pageview API, which may have limitations in terms of accuracy and completeness. The API may also undergo changes over time. I have not delved deep into the data accuracy and hence would recommend to be mindful of the limitations when conducting further analyses.
 
-
 ## Conclusion
 
 We have successfully analyzed Wikipedia traffic patterns for rare disease articles, highlighting key trends across various access methods (desktop, mobile web, and mobile app) from July 2015 to September 2024. By querying and visualizing data from the Wikimedia Pageviews API, we can now analyze and track how public interest fluctuates over time and in response to specific events.
@@ -121,3 +102,6 @@ The project could be improved by incorporating best practices such as using logg
 
 ## Additional References
 - Blancas, Eduardo (2021) [The Data Science Checklist: Best Practices for Maintainable Data Science Projects](https://ploomber.io/blog/checklist/), Ploomber
+
+## Additional Notes
+- ChatGPT was used in this assignment as a grammar and vocabulary checker, as well as to rephrase content that I wrote myself.
