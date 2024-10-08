@@ -41,9 +41,9 @@ To run this project, execute the notebooks mentioned in the sections below.
 This is the first step in this project where we ensure that all the data is prepared for analysis.
 
 The script generates the following files in the location `data/generated_data/`:
- - **rare-disease_monthly_mobile_<`startYYYYMM`>-<`endYYYYMM`>.json:** Contains monthly pageview data for mobile access, combining both mobile app and mobile web views.
- - **rare-disease_monthly_desktop_<`startYYYYMM`>-<`endYYYYMM`>.json:** Includes monthly pageview data specifically for desktop access.
- - **rare-disease_monthly_cumulative_<startYYYYMM>-<endYYYYMM>.json:** Contains cumulative pageview data, summing all mobile and desktop traffic for each article.
+ - [**rare-disease_monthly_mobile_<`startYYYYMM`>-<`endYYYYMM`>.json:**](https://github.com/parvatijay2901/data-512-homework_1/blob/main/data/generated_data/rare-disease_monthly_mobile_201507-202409.json) Contains monthly pageview data for mobile access, combining both mobile app and mobile web views.
+ - [**rare-disease_monthly_desktop_<`startYYYYMM`>-<`endYYYYMM`>.json:**](https://github.com/parvatijay2901/data-512-homework_1/blob/main/data/generated_data/rare-disease_monthly_desktop_201507-202409.json) Includes monthly pageview data specifically for desktop access.
+ - [**rare-disease_monthly_cumulative_<`startYYYYMM`>-<`endYYYYMM`>.json:**](https://github.com/parvatijay2901/data-512-homework_1/blob/main/data/generated_data/rare-disease_monthly_cumulative_201507-202409.json) Contains cumulative pageview data, summing all mobile and desktop traffic for each article.
 
 Each of them have the following data schema:
 ```yaml
